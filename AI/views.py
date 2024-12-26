@@ -12,11 +12,11 @@ class OpenAIChat(APIView):
             try:
                 response = OpenAI.generate_response(prompt)
                 print("response in the openaichat",response)
-                return Response({"Response":response["content"]},status=status.HTTP_201_CREATED)
+                return Response({"Response":response},status=status.HTTP_201_CREATED)
             except Exception as e:
                 return Response({"Erro":str(e)},status=status.HTTP_400_BAD_REQUEST)
         else:
-            return Response({"Erro":"Prompr not provided"},status=status.HTTP_204_NO_CONTENT)
+            return Response({"Error":"Prompt not provided"},status=status.HTTP_204_NO_CONTENT)
         
             
 
