@@ -21,7 +21,8 @@ class OpenAI:
                     {"role": "user", "content": prompt}
                     ]  
             )
-            return response
+            ai_message = response.choices[0].message.content
+            return ai_message
         except Exception as e:
             return {"Error": str(e)}
         
